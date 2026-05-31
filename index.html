@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Richard Peters — Avero</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --white: #ffffff;
+  --ink: #111210;
+  --ink-2: #383935;
+  --ink-3: #797970;
+  --ink-4: #b2b2a8;
+  --rule: #e2e2dc;
+  --bg: #fafaf8;
+  --accent: #3d7f7f;
+  --accent-light: #ebf4f4;
+  --accent-mid: #2d6060;
+  --sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+}
+body { font-family: var(--sans); background: var(--white); color: var(--ink); font-size: 15px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+.page { max-width: 820px; margin: 0 auto; padding: 0 2.5rem; }
+nav { display: grid; grid-template-columns: 1fr auto; align-items: center; padding: 1.75rem 0; border-bottom: 2px solid var(--ink); }
+.brand { font-family: var(--mono); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; color: var(--ink); text-transform: uppercase; }
+.brand-dot { color: var(--accent); }
+.nav-right { display: flex; align-items: center; gap: 2rem; }
+.nav-loc { font-family: var(--mono); font-size: 0.68rem; color: var(--ink-4); letter-spacing: 0.06em; }
+.nav-cta { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); text-decoration: none; transition: color 0.15s; }
+.nav-cta:hover { color: var(--accent-mid); }
+.hero { display: grid; grid-template-columns: 1fr 220px; gap: 5rem; padding: 5.5rem 0 5rem; border-bottom: 1px solid var(--rule); align-items: end; }
+@media (max-width: 600px) { .hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 0 2.5rem; } }
+.hero-main h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 300; line-height: 1.12; letter-spacing: -0.025em; color: var(--ink); margin-bottom: 2rem; }
+.hero-main h1 strong { font-weight: 500; }
+.hero-main h1 .teal { color: var(--accent); font-weight: 300; }
+.hero-name { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 1.25rem; }
+.hero-lead { font-size: 0.9rem; color: var(--ink-3); line-height: 1.8; max-width: 400px; }
+.hero-aside { padding-bottom: 0.2rem; }
+.aside-item { padding: 0.85rem 0; border-top: 1px solid var(--rule); }
+.aside-item:last-child { border-bottom: 1px solid var(--rule); }
+.aside-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 0.3rem; }
+.aside-value { font-size: 0.82rem; color: var(--ink-2); line-height: 1.45; }
+.section { padding: 4.5rem 0; border-bottom: 1px solid var(--rule); }
+.section:last-of-type { border-bottom: none; }
+.section-label { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; }
+.approach-col { max-width: 580px; }
+.approach-text { font-size: 1rem; font-weight: 300; color: var(--ink-2); line-height: 1.9; letter-spacing: -0.005em; }
+.approach-text strong { font-weight: 500; color: var(--ink); }
+.engagements { display: flex; flex-direction: column; }
+.engagement { display: grid; grid-template-columns: 148px 1fr; gap: 2.5rem; padding: 2.25rem 0; border-bottom: 1px solid var(--rule); align-items: start; }
+.engagement:first-child { padding-top: 0; }
+.engagement:last-child { border-bottom: none; padding-bottom: 0; }
+@media (max-width: 540px) { .engagement { grid-template-columns: 1fr; gap: 0.4rem; } }
+.eng-type { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-4); line-height: 1.7; padding-top: 0.15rem; }
+.eng-body h3 { font-size: 0.92rem; font-weight: 500; color: var(--ink); margin-bottom: 0.55rem; letter-spacing: -0.01em; line-height: 1.4; }
+.eng-body p { font-size: 0.82rem; color: var(--ink-3); line-height: 1.8; }
+.sectors-wrap { display: flex; flex-direction: column; gap: 1.5rem; }
+.sectors-list { display: flex; flex-wrap: wrap; column-gap: 2rem; row-gap: 0.6rem; }
+.sector-item { font-size: 0.82rem; color: var(--ink-2); display: flex; align-items: center; gap: 0.5rem; }
+.sector-item::before { content: ''; display: inline-block; width: 4px; height: 4px; background: var(--accent); flex-shrink: 0; }
+.background-note { font-size: 0.78rem; color: var(--ink-4); line-height: 1.7; padding-top: 1.5rem; border-top: 1px solid var(--rule); max-width: 480px; }
+.connect-body { max-width: 520px; }
+.connect-intro { font-size: 1.25rem; font-weight: 300; line-height: 1.5; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 1rem; }
+.connect-intro strong { font-weight: 500; }
+.connect-sub { font-size: 0.85rem; color: var(--ink-3); line-height: 1.75; margin-bottom: 2rem; }
+.linkedin-btn { display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1.6rem; background: var(--accent); color: var(--white); text-decoration: none; font-family: var(--mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.15s; }
+.linkedin-btn:hover { background: var(--accent-mid); }
+.linkedin-note { margin-top: 0.75rem; font-family: var(--mono); font-size: 0.62rem; color: var(--ink-4); }
+footer { display: grid; grid-template-columns: 1fr auto; align-items: center; padding: 1.5rem 0 2rem; border-top: 2px solid var(--ink); }
+.footer-copy { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; color: var(--ink-4); text-transform: uppercase; }
+.footer-link { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-decoration: none; }
+.footer-link:hover { color: var(--accent-mid); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <nav>
+    <div class="brand">Avero<span class="brand-dot">.</span></div>
+    <div class="nav-right">
+      <span class="nav-loc">Auckland, NZ</span>
+      <a href="#connect" class="nav-cta">Connect</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-main">
+      <div class="hero-name">Richard Peters</div>
+      <h1>Technology leadership<br>for founders<br>and <span class="teal">boards</span></h1>
+      <p class="hero-lead">Nearly three decades across financial services, health technology, and SaaS. Brought in when the decisions are consequential - to reduce risk, resolve complexity, and drive outcomes.</p>
+    </div>
+    <div class="hero-aside">
+      <div class="aside-item">
+        <div class="aside-label">Experience</div>
+        <div class="aside-value">29 years</div>
+      </div>
+      <div class="aside-item">
+        <div class="aside-label">Roles</div>
+        <div class="aside-value">NED · Advisor<br>Architect · Lead</div>
+      </div>
+      <div class="aside-item">
+        <div class="aside-label">Approach</div>
+        <div class="aside-value">Stack-agnostic.<br>Outcome-focused.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Approach</div>
+    <div class="approach-col">
+      <p class="approach-text">I listen and observe before drawing conclusions - forming an honest picture of what has actually been built, what has been promised, and what the business genuinely needs. I have no interest in applying a preferred stack or a prepackaged methodology. <strong>The problem dictates the approach.</strong> I am as comfortable in a board conversation as I am deep in an architecture review, and I understand that the organisational and political landscape around a technology decision is often as important as the decision itself. My goal is always the same: understand the reality, reduce the risk, and move things forward.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Selected engagements</div>
+    <div class="engagements">
+
+      <div class="engagement">
+        <div class="eng-type">Non-Executive<br>Director</div>
+        <div class="eng-body">
+          <h3>Health technology company - technology leadership through growth</h3>
+          <p>Engaged at board level to provide technology leadership during a critical period of platform development and commercial growth. Worked alongside the executive team to establish sound architecture, remove barriers to scale, and ensure technology decisions were aligned with the company's strategic direction. Continues in an ongoing advisory capacity.</p>
+        </div>
+      </div>
+
+      <div class="engagement">
+        <div class="eng-type">Strategic Advisor<br>&amp; AI Lead</div>
+        <div class="eng-body">
+          <h3>Technology services company - AI adoption &amp; engineering practice</h3>
+          <p>Long-term engagement working alongside founders and senior management on strategy, platform development, and complex problem-solving across a range of technology stacks. Contributed to the design and adoption of AI-driven development workflows and governance frameworks, evaluation of local LLM alternatives, and the broader challenge of applying AI responsibly within delivery teams.</p>
+        </div>
+      </div>
+
+      <div class="engagement">
+        <div class="eng-type">Technical<br>Architecture</div>
+        <div class="eng-body">
+          <h3>Major fund manager - infrastructure modernisation</h3>
+          <p>Pioneered the architectural approach for a significant infrastructure modernisation, solving the core integration challenges that enabled development teams to build out the wider system with confidence. Delivered during a period of meaningful organisational change, with minimal disruption to ongoing operations.</p>
+        </div>
+      </div>
+
+      <div class="engagement">
+        <div class="eng-type">Platform<br>Development</div>
+        <div class="eng-body">
+          <h3>SaaS &amp; agency clients - greenfield and rescue</h3>
+          <p>Ongoing consultancy across greenfield platform builds, architecture advisory, and technical rescue - often engaged when a previous approach has stalled or a critical decision point has been reached.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Sectors</div>
+    <div class="sectors-wrap">
+      <div class="sectors-list">
+        <div class="sector-item">Financial services</div>
+        <div class="sector-item">Health technology</div>
+        <div class="sector-item">Government &amp; public sector</div>
+        <div class="sector-item">SaaS platforms</div>
+        <div class="sector-item">Brand &amp; digital agencies</div>
+        <div class="sector-item">AI &amp; emerging technology</div>
+      </div>
+      <p class="background-note">Career background includes Legal &amp; General and American Express in the UK, before relocating to New Zealand. MSc Computer Science, University of Liverpool.</p>
+    </div>
+  </div>
+
+  <div class="section" id="connect">
+    <div class="section-label">Connect</div>
+    <div class="connect-body">
+      <p class="connect-intro">If you are working through a <strong>significant technology challenge</strong>, I would be glad to have a conversation.</p>
+      <p class="connect-sub">The best way to reach me is via LinkedIn. I respond to every message personally.</p>
+      <a href="https://www.linkedin.com/in/richard-peters-630a357/" target="_blank" class="linkedin-btn">Connect on LinkedIn &rarr;</a>
+      <p class="linkedin-note">linkedin.com/in/richard-peters-630a357</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-copy" id="footer-copy"></div>
+    <a href="https://www.linkedin.com/in/richard-peters-630a357/" target="_blank" class="footer-link">LinkedIn &rarr;</a>
+  </footer>
+
+</div>
+<script>
+  document.getElementById('footer-copy').textContent = '© ' + new Date().getFullYear() + ' Avero Limited · Auckland, New Zealand';
+</script>
+</body>
+</html>
